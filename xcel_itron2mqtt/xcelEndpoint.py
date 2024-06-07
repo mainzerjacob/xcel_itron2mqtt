@@ -101,7 +101,7 @@ class xcelEndpoint():
         topic, and a dict to be used as the payload.
         """
         payload = deepcopy(details)
-        mqtt_friendly_name = self.name.replace(" ", "_")
+        mqtt_friendly_name = os.getenv('INTEGRATION_NAME') + "_" + self.name.replace(" ", "_")
         entity_type = payload.pop('entity_type')
         payload["state_topic"] = f'{self._mqtt_topic_prefix}{entity_type}/{mqtt_friendly_name}/{sensor_name}/state'
         payload['name'] = f'{self.name} {sensor_name}'

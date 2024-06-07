@@ -80,7 +80,7 @@ if __name__ == '__main__':
     else:
         ip_address, port_num = mDNS_search_for_meter()
     creds = look_for_creds()
-    meter = xcelMeter(INTEGRATION_NAME, ip_address, port_num, creds)
+    meter = xcelMeter(INTEGRATION_NAME + "-" + os.getenv('INTEGRATION_NAME'), ip_address, port_num, creds)
     meter.setup()
 
     if meter.initalized:
