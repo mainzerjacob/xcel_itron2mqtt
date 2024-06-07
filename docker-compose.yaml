@@ -18,5 +18,6 @@ services:
     environment:
       MQTT_SERVER: mqtt
       METER_PORT: 8081
+      INTEGRATION_NAME: Primary Meter
     env_file:
       - .env
